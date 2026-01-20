@@ -1,16 +1,28 @@
-# Longest Increasing Subsequence (LIS)
+# Longest Increasing Subsequence (C# .NET)
 
-## Problem
-Given a string of integers separated by spaces, find the longest increasing subsequence.
-If multiple sequences have the same maximum length, return the earliest one.
+## Objective
+Translate a problem into a working solution using C# .NET, demonstrate clean and readable code,
+unit testing, and provide clear instructions to verify the solution.
 
-## Solution
-- Implemented in C# .NET
-- Uses Dynamic Programming (O(n²))
-- Deterministic output with earliest sequence selection
-- Covered with unit tests using xUnit
+---
 
-## How to Run
-```bash
-dotnet build
-dotnet test
+## Problem Statement
+Given a string of integers separated by single whitespace, determine the
+**longest increasing subsequence (LIS)**.
+If multiple subsequences have the same maximum length,
+the **earliest occurring subsequence** is returned.
+
+---
+
+## Solution Overview
+- Implemented using **Dynamic Programming (O(n²))**
+- Deterministic tie-breaking for earliest sequence
+- Written in **C# .NET**
+- Unit tested using **xUnit**
+
+---
+
+## Example
+
+Input: 6 1 5 9 2
+Output: 1 5 9

@@ -1,0 +1,10 @@
+version: "3.9"
+
+services:
+  lis-app:
+    image: lis-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: lis-app-container
+    command: ["dotnet", "test"]
