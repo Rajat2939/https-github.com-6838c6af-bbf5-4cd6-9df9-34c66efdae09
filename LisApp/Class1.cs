@@ -9,60 +9,42 @@ namespace LisApp
         public string FindLongestIncreasingSubsequence(string input)
         {
             if (string.IsNullOrWhiteSpace(input))
-                return string.Empty;
+                return "";
 
-            int[] nums = input
-                .Split(' ', StringSplitOptions.RemoveEmptyEntries)
-                .Select(int.Parse)
-                .ToArray();
+            var numbers = input.Trim().Split(' ').Select(int.Parse).ToArray();
+            if (numbers.Length == 0)
+                return "";
 
-            int n = nums.Length;
+            List<int> bestSequence = new List<int>();
+            int bestStartIndex = 0;
 
-            int[] dp = new int[n];
-            int[] prev = new int[n];
-            int[] start = new int[n];
-
-            for (int i = 0; i < n; i++)
+            for (int i = 0; i < numbers.Length; i++)
             {
-                dp[i] = 1;
-                prev[i] = -1;
-                start[i] = i;
+                List<int> currentSequence = new List<int> { numbers[i] };
 
-                for (int j = 0; j < i; j++)
+                for (int j = i + 1; j < numbers.Length; j++)
                 {
-                    if (nums[j] < nums[i])
+                    if (numbers[j] > currentSequence.Last())
                     {
-                        if (dp[j] + 1 > dp[i] ||
-                           (dp[j] + 1 == dp[i] && start[j] < start[i]))
-                        {
-                            dp[i] = dp[j] + 1;
-                            prev[i] = j;
-                            start[i] = start[j];
-                        }
+                        currentSequence.Add(numbers[j]);
+                    }
+                    else
+                    {
+                        // End of increasing sequence
+                        break;
                     }
                 }
-            }
 
-            int maxLen = dp.Max();
-            int endIndex = -1;
-
-            for (int i = 0; i < n; i++)
-            {
-                if (dp[i] == maxLen)
+                // Compare with best found
+                if (currentSequence.Count > bestSequence.Count ||
+                    (currentSequence.Count == bestSequence.Count && i < bestStartIndex))
                 {
-                    if (endIndex == -1 || start[i] < start[endIndex])
-                        endIndex = i;
+                    bestSequence = new List<int>(currentSequence);
+                    bestStartIndex = i;
                 }
             }
 
-            var result = new Stack<int>();
-            while (endIndex != -1)
-            {
-                result.Push(nums[endIndex]);
-                endIndex = prev[endIndex];
-            }
-
-            return string.Join(" ", result);
+            return string.Join(" ", bestSequence);
         }
     }
 }
