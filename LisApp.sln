@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36717.8 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LisApp", "LisApp\LisApp.csproj", "{AAF1D9E4-7B13-429B-A058-E587BE095060}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LisApp.Tests", "LisApp.Tests\LisApp.Tests.csproj", "{08A47DB5-8925-40FB-869F-909876C398E9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AAF1D9E4-7B13-429B-A058-E587BE095060}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAF1D9E4-7B13-429B-A058-E587BE095060}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAF1D9E4-7B13-429B-A058-E587BE095060}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAF1D9E4-7B13-429B-A058-E587BE095060}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08A47DB5-8925-40FB-869F-909876C398E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08A47DB5-8925-40FB-869F-909876C398E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08A47DB5-8925-40FB-869F-909876C398E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08A47DB5-8925-40FB-869F-909876C398E9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9CCDE8A4-4742-48F8-9E13-7C74BF91F140}
+	EndGlobalSection
+EndGlobal
