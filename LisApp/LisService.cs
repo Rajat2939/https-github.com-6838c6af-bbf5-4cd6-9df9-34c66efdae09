@@ -9,42 +9,39 @@ namespace LisApp
         public string FindLongestIncreasingSubsequence(string input)
         {
             if (string.IsNullOrWhiteSpace(input))
-                return "";
+                return string.Empty;
 
-            var numbers = input.Trim().Split(' ').Select(int.Parse).ToArray();
+            int[] numbers = input.Trim()
+                                 .Split(' ')
+                                 .Select(int.Parse)
+                                 .ToArray();
+
             if (numbers.Length == 0)
-                return "";
+                return string.Empty;
 
-            List<int> bestSequence = new List<int>();
-            int bestStartIndex = 0;
+            List<int> best = new();
+            List<int> current = new() { numbers[0] };
 
-            for (int i = 0; i < numbers.Length; i++)
+            for (int i = 1; i < numbers.Length; i++)
             {
-                List<int> currentSequence = new List<int> { numbers[i] };
-
-                for (int j = i + 1; j < numbers.Length; j++)
+                if (numbers[i] > numbers[i - 1])
                 {
-                    if (numbers[j] > currentSequence.Last())
-                    {
-                        currentSequence.Add(numbers[j]);
-                    }
-                    else
-                    {
-                        // End of increasing sequence
-                        break;
-                    }
+                    current.Add(numbers[i]);
                 }
-
-                // Compare with best found
-                if (currentSequence.Count > bestSequence.Count ||
-                    (currentSequence.Count == bestSequence.Count && i < bestStartIndex))
+                else
                 {
-                    bestSequence = new List<int>(currentSequence);
-                    bestStartIndex = i;
+                    if (current.Count > best.Count)
+                        best = new List<int>(current);
+
+                    current.Clear();
+                    current.Add(numbers[i]);
                 }
             }
 
-            return string.Join(" ", bestSequence);
+            if (current.Count > best.Count)
+                best = current;
+
+            return string.Join(" ", best);
         }
     }
 }
